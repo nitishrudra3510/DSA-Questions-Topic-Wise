@@ -2,7 +2,7 @@
 // #include<iostream>
 // using namespace std;
 // int BsearchRecursion(int arr[], int start, int high, int x){
-//     if(start>high){
+//     if(start > high){
 //         return -1;
 //     }
 //     int mid = (start+high)/2;
