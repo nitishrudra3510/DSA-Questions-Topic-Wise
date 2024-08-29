@@ -116,42 +116,89 @@
 
 
 // second largest element in an array
+
+// #include<iostream>
+// using namespace std;
+// int getLargestElement(int arr[], int size){
+//     int largest = 0;
+//     for(int i=1; i<size; i++){
+//         if(arr[i]>arr[largest]){
+//             largest = i;
+//         }
+//     }
+//     return largest;
+// }
+
+// int secondLargestElement(int arr[], int size){
+//     int largest = getLargestElement(arr, size);
+//     int res = -1;
+//     for(int i=0; i<size; i++){
+//         if(arr[i]!=arr[largest]){
+//             if(res==-1){
+//                 res=i;
+//             }else if(arr[i]>arr[res]){
+//                 res=i;
+//             }
+//         }
+//     }
+
+//     return res;
+// }
+// int main(){
+//     int arr[]={5, 7, 4, 10, 40, 20};
+//     int size = sizeof(arr)/sizeof(arr[0]);
+//     int secondindex = secondLargestElement(arr, size);
+//     if(secondindex!=-1){
+//         cout<<"Second largest element "<<arr[secondindex]<<endl;
+//     }
+//     else{
+//         cout<<"not second largest element";
+//     }
+//     return 0;
+// }
+
+
+// array is sorted or not;
+// #include<iostream>
+// using namespace std;
+// bool isSorted(int arr[], int size){
+//     for(int i=0; i<size; i++){
+//         for(int j=i+1; j<size; j++){
+//             if(arr[j]<arr[i]){
+//                 return false;
+//             }
+//         }
+        
+//     }
+//     return true;
+// }
+// int main(){
+//     int arr[] = {4, 7, 4, 10, 40, 20};
+//     int size = sizeof(arr)/sizeof(arr[0]);
+//     if(isSorted(arr, size)){
+//         cout<<"Sorted"<<endl;
+//     }else{
+//         cout<<"un Sorted"<<endl;
+//     }
+// }
+
+
 #include<iostream>
 using namespace std;
-int getLargestElement(int arr[], int size){
-    int largest = 0;
+bool isSorted(int arr[], int size){
     for(int i=1; i<size; i++){
-        if(arr[i]>arr[largest]){
-            largest = i;
+        if(arr[i]<arr[i-1]){
+            return false;
         }
     }
-    return largest;
-}
-
-int secondLargestElement(int arr[], int size){
-    int largest = getLargestElement(arr, size);
-    int res = -1;
-    for(int i=0; i<size; i++){
-        if(arr[i]!=arr[largest]){
-            if(res==-1){
-                res=i;
-            }else if(arr[i]>arr[res]){
-                res=i;
-            }
-        }
-    }
-
-    return res;
+    return true;
 }
 int main(){
-    int arr[]={5, 7, 4, 10, 40, 20};
+    int arr[] = {4, 7,  10, 40, 200};
     int size = sizeof(arr)/sizeof(arr[0]);
-    int secondindex = secondLargestElement(arr, size);
-    if(secondindex!=-1){
-        cout<<"Second largest element "<<arr[secondindex]<<endl;
+    if(isSorted(arr, size)){
+        cout<<"Sorted"<<endl;
+    }else{
+        cout<<"un Sorted"<<endl;
     }
-    else{
-        cout<<"not second largest element";
-    }
-    return 0;
 }
