@@ -363,6 +363,11 @@
 // t.c: Theta(nd)
 
 
+
+
+
+// // T.c : theata(n)
+// // auxoloary space: Theta(d);
 // another methods
 // #include<iostream>
 // using namespace std;
@@ -390,9 +395,8 @@
 // }
 
 
-// // T.c : theata(n)
-// // auxoloary space: Theta(d);
 
+// Time complexity: Theta(N), auciliary Space: Theta(1)
 #include<iostream>
 #include<algorithm>
 using namespace std;
