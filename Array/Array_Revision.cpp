@@ -271,28 +271,120 @@
 
 
 
+
+
+// #include<iostream>
+// using namespace std;
+// int DuplicateArray(int arr[], int size){
+//     int res = 1;
+//     for(int i = 0; i < size; i++){
+//         if(arr[i]!=arr[res-1]){
+//             arr[res] = arr[i];
+//             res++;
+//         }
+
+//     }
+//     return res;
+// }
+// int main(){
+//     int arr[] = {10, 20, 20, 30, 30, 30, 30};
+//     int size = sizeof(arr) / sizeof(arr[0]);
+//     int n = DuplicateArray(arr, size);
+//     cout << "New array size after removing duplicates: " << n << endl;
+//     for(int i = 0; i < n; i++){
+//         cout<<arr[i]<<endl;
+//     }
+//     return 0;
+// }
+
+
+// left rotate an array by one
+// arr[] = {1,2,3,4,5,6,7,8,9,10,11}
+
+// #include<iostream>
+// using namespace std;
+// void LRotate(int arr[], int size){
+//     int temp = arr[0];
+//     for(int i = 0; i < size-1; i++){
+//         arr[i]=arr[i+1];
+//     }
+
+//     arr[size-1]=temp;
+    
+    
+// }
+// int main(){
+//     int arr[] = {1,2,3,4,5,6,7,8,9,10,11};
+//     int size = sizeof(arr) / sizeof(arr[0]);
+//     LRotate(arr, size);
+//     cout<<"Left Rotate array by One : "<<endl;
+//     for(int i=0; i<size; i++){
+//         cout<<arr[i]<<" ";
+//     }
+// }
+
+// time complexity = Theta(N)
+// Auxiliary Space: Theta(1)
+
+
+
+// left rotation an array by d position;
+
+// #include<iostream>
+// using namespace std;
+// void LRotateOne(int arr[], int size){
+//     int temp = arr[0];
+//     for(int i = 0; i < size-1; i++){
+//         arr[i]=arr[i+1];
+//     }
+
+//     arr[size-1]=temp;
+// }
+
+// void leftRotate(int arr[], int size, int d){
+//     for(int i=0; i<d; i++){
+//         LRotateOne(arr, size);
+//     }
+// }
+
+// int main(){
+//     int arr[] = {1,2,3,4,5,6,7,8,9,10,11};
+//     int size = sizeof(arr) / sizeof(arr[0]);
+//     int d;
+//     cin >> d;
+//     LRotateOne(arr, size);
+//     leftRotate(arr, size, d);
+//     cout<<"Left Rotate array by One : "<<endl;
+//     for(int i=0; i<size; i++){
+//         cout<<arr[i]<<" ";
+//     }
+// }
+
+// t.c: Theta(nd)
+
+
+// another methods
 #include<iostream>
 using namespace std;
-int DuplicateArray(int arr[], int size){
-    int res = 1;
-    for(int i = 0; i < size; i++){
-        if(arr[i]!=arr[res-1]){
-            arr[res] = arr[i];
-            res++;
-        }
-
+void leftRotateD(int arr[], int size, int d){
+    int temp[d];
+    for(int i=0; i<d; i++){
+        temp[i]=arr[i];
     }
-    return res;
+    for(int i =d; i<size; i++){
+        arr[i-d]=arr[i];
+    }
+    for(int i=0; i<d; i++){ 
+        arr[size-d+i]=temp[i];
+    }
 }
 int main(){
-    int arr[] = {10, 20, 20, 30, 30, 30, 30};
+    int arr[] = {1,2,3,4,5,6,7,8,9,10,11};
     int size = sizeof(arr) / sizeof(arr[0]);
-    int n = DuplicateArray(arr, size);
-    cout << "New array size after removing duplicates: " << n << endl;
-    for(int i = 0; i < n; i++){
-        cout<<arr[i]<<endl;
+    int d;
+    cin >> d;
+    leftRotateD(arr, size, d);
+    for(int i=0; i<size; i++){
+        cout<<arr[i]<<" ";
     }
-    return 0;
 }
-
-
