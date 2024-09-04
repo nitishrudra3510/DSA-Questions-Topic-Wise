@@ -183,22 +183,116 @@
 // }
 
 
+// #include<iostream>
+// using namespace std;
+// bool isSorted(int arr[], int size){
+//     for(int i=1; i<size; i++){
+//         if(arr[i]<arr[i-1]){
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+// int main(){
+//     int arr[] = {4, 7,  10, 40, 200};
+//     int size = sizeof(arr)/sizeof(arr[0]);
+//     if(isSorted(arr, size)){
+//         cout<<"Sorted"<<endl;
+//     }else{
+//         cout<<"un Sorted"<<endl;
+//     }
+// }
+
+
+// reverse an array:
+
+// #include<iostream>
+// using namespace std;
+
+// void reverse(int arr[], int size){
+//     int low = 0, high = size - 1;
+//     while(low < high){
+//         int temp = arr[low];
+//         arr[low] = arr[high];
+//         arr[high] = temp;
+//         low++;
+//         high--;
+//     }
+// }
+
+// int main(){
+//     int arr[] = {4, 7, 10, 40, 200};
+//     int size = sizeof(arr) / sizeof(arr[0]);
+
+//     // Reverse the array
+//     reverse(arr, size);
+
+//     // Print the reversed array
+//     cout << "Reversed array: ";
+//     for(int i = 0; i < size; i++){
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+
+//     return 0;
+// }
+
+// time complexicity: 0(n)
+// auxiliary space: 0(n)
+
+
+
+// remove duplicate from a sorted array
+
+// #include<iostream>
+// using namespace std;
+// int DuplicateArray(int arr[], int size){
+//     int temp[size]; 
+//     temp[0] = arr[0];
+//     int res = 0;
+//         for(int i = 1; i < size; i++){
+//             if(arr[i]!=arr[res]){
+//             temp[res+1] = arr[i];
+//             res++;
+//             }
+//         }
+//         for(int i = 1; i < size; i++){
+//             arr[i] = temp[i];
+//         }
+//         return res;
+//     }
+    
+// int main(){
+//     int arr[] = {10, 20, 20, 30, 30, 30, 30};
+//     int size = sizeof(arr) / sizeof(arr[0]);
+//     cout<<DuplicateArray(arr, size);
+//     return 0;
+// }
+
+
+
 #include<iostream>
 using namespace std;
-bool isSorted(int arr[], int size){
-    for(int i=1; i<size; i++){
-        if(arr[i]<arr[i-1]){
-            return false;
+int DuplicateArray(int arr[], int size){
+    int res = 1;
+    for(int i = 0; i < size; i++){
+        if(arr[i]!=arr[res-1]){
+            arr[res] = arr[i];
+            res++;
         }
+
     }
-    return true;
+    return res;
 }
 int main(){
-    int arr[] = {4, 7,  10, 40, 200};
-    int size = sizeof(arr)/sizeof(arr[0]);
-    if(isSorted(arr, size)){
-        cout<<"Sorted"<<endl;
-    }else{
-        cout<<"un Sorted"<<endl;
+    int arr[] = {10, 20, 20, 30, 30, 30, 30};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int n = DuplicateArray(arr, size);
+    cout << "New array size after removing duplicates: " << n << endl;
+    for(int i = 0; i < n; i++){
+        cout<<arr[i]<<endl;
     }
+    return 0;
 }
+
+
