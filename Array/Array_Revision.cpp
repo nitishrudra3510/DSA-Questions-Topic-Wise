@@ -388,3 +388,7 @@ int main(){
         cout<<arr[i]<<" ";
     }
 }
+
+
+// T.c : theata(n)
+// auxoloary space: Theta(d);
