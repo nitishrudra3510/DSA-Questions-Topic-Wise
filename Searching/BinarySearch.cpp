@@ -8,7 +8,7 @@ int bsearch(int arr[], int n, int x){
         if(arr[mid]==x){
             return mid;
         }
-        else if(arr[mid]>0){
+        else if(arr[mid]>x){
             return mid-1;
         }
 
