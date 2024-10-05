@@ -1,5 +1,7 @@
+#include <algorithm>
 #include <cstdio>
 #include<iostream>
+#include <iterator>
 #include<string>
 using namespace std;
 int main(){
@@ -38,14 +40,15 @@ int main(){
     //cout<<str.length(); // 0 to str.length()
 
     // push and pop back
-    // string str = "nitsh explode explode";
-    // cout<<str<<endl;
-    // str.push_back('r'); // single character takes
-    // str.push_back('b');
-    // str.push_back('s');
-    // cout<<str<<endl;
+    string str = "nitsh explode explode";
+    cout<<str<<endl;
+    str.push_back('r'); // single character takes
+    str.push_back('b');
+    str.push_back(str[0]);
+    str.push_back('s');
+    cout<<str<<endl;
 
-    // str.pop_back(); // last element ko uda dega..
+    str.pop_back(); // last element ko uda dega..
     // cout<<str<<endl;
 
 
@@ -68,12 +71,12 @@ int main(){
     // cout<<str<<endl;
 
 
-    // input a string of even length and reverse the first of half pof the strings;
+    // input a string of even length and reverse the first of half of the strings;
 
     // string str;
     // getline(cin, str);
     // int n = str.length();
-    // reverse(str.begin(), str.end()+n/2);
+    // reverse(str.begin(), str.begin()+n/2);
     // cout<<str<<endl;
 
 
@@ -94,10 +97,52 @@ int main(){
     // string str = to_string(x);
     // cout<<str<<endl;
 
-    int x = 3523424;
-    string str = to_string(x);
-    int n = str.length();
-    cout<<n<<endl;
+    // int x = 3523424;
+    // string str = to_string(x);
+    // int n = str.length();
+    // cout<<n<<endl;
 
+
+    // question : 
+    // string str;
+    // cin>>str;
+    // int count = 0;
+    // int n = str.length();
+    // for(int i=0; i<n; i++){
+    //     if(n==1) break;
+    //     if(n==2 && str[0]!= str[1]){
+    //         count = 1;
+    //         break;
+    //     }
+    //     if(i==0){
+    //         if(str[i]!=str[i+1]) count++;
+    //     }
+    //     else if(i==n-1){
+    //         if(str[i]!=str[i+1]) count++;
+    //     }
+    //     else if(str[i]!=str[i+1] && str[i]!=str[i-1]){
+    //         count++;
+    //     }
+        
+    // }
+    // cout<<count;
+
+
+    // sort string
+    // string str;
+    // getline(cin, str);
+    // sort(str.begin(), str.end());
+    // cout<<str;
+
+
+    // questions 
+    // string s = "nitish rudra";
+    // string str = "nitish rudra";
+    // sort(s.begin(), s.end());
+    // sort(str.begin(), str.end());
+    // cout<<s<<endl;
+    // cout<<endl;
+    // if(s==str) cout<<true;
+    // else cout<<false;
 
 }
