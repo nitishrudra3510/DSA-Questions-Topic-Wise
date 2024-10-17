@@ -17,7 +17,7 @@ class Node{
     Node(int data1){
         data = data1;
         next = NULL;
-    }
+    }f
 };
 
 Node* insertBefore(Node* head, int key, int data1){
