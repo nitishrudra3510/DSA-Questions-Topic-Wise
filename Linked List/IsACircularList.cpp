@@ -26,6 +26,7 @@ void insertNode(Node*& head, int data) {
 }
 
 
+
 bool isCircular(Node* head) {
     if (!head) return false;
 
