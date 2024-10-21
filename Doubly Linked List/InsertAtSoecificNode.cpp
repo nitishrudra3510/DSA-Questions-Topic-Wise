@@ -56,9 +56,10 @@ Node* insertAtSpecificPos(Node* head, int position, int data){
     }
     // set the prev of new node to curr
     new_node->prev = curr;
-    // 
+    // jo new node hai usko new node ke next curr node ke sath connect kar dega
     new_node->next = curr->next;
 
+    // first update the new_node->next node then it update to the curr next node as new new_node;
     curr->next = new_node;
 
     // if the new node has not the the last node, update the previous of next node to new node.
