@@ -32,7 +32,7 @@ Node* insertEnd(Node* head, int data){
         temp->next = new_node;
         new_node->prev = temp;
     }
-
+c
     return head;
 }
 
