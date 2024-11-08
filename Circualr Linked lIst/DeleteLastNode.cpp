@@ -27,7 +27,7 @@ Node* deleteLastNode(Node* last) {
         curr = curr->next;
     }
 
-    curr->next = head;  // Link second-last node to head
+    curr->next = head;  
     delete last;  // Delete the last node
     return curr;  // Update last to second-last node
 }
