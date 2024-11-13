@@ -1,11 +1,13 @@
-#include<iostream>
+#include <iostream>
+#include <stack>
 using namespace std;
 
-// use 2 stack;
-void method1(stack<int> st){
+// Reverse the stack using two stacks
+void method1(stack<int>& st) {
     stack<int> temp;
     stack<int> rt;
 
+    // Transfer elements to `temp` stack (essentially reversing them)
     while (!st.empty()) {
         int x = st.top();
         st.pop();
@@ -26,11 +28,28 @@ void method1(stack<int> st){
         st.push(x);
     }
 }
-// using an array..
-void method(){
 
-}
-int main(){
+// Using an extra array to reverse the stack
+// void method(stack<int>& st) {
+//     int n = st.size();
+//     int* arr = new int[n]; // Dynamically allocate an array
+//     int index = 0;
+
+//     // Transfer elements to the array
+//     while (!st.empty()) {
+//         arr[index++] = st.top();
+//         st.pop();
+//     }
+
+//     // Push elements back into the stack in reverse order
+//     for (int i = n - 1; i >= 0; i--) {
+//         st.push(arr[i]);
+//     }
+
+//     delete[] arr; // Free dynamically allocated memory
+// }
+
+int main() {
     stack<int> st;
     st.push(10);
     st.push(20);
@@ -45,10 +64,15 @@ int main(){
     }
     cout << endl;
 
-    cout<< "Reversed Stack : ";
-    while(st.size()>0){
-        cout<<st.top()<<" ";
+    method1(st);  // Reverse using two stacks
+    // or method(st); // Reverse using an extra array
+
+    cout << "Reversed Stack (from top to bottom): ";
+    while (!st.empty()) {
+        cout << st.top() << " ";
         st.pop();
     }
+    cout << endl;
 
+    return 0;
 }
