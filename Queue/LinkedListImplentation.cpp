@@ -26,7 +26,6 @@ class Queue{
     }
 
     void push(int x){
-        
         Node* n = new Node(x);
         if(front==NULL){
             back=n;
