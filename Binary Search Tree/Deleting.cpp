@@ -44,12 +44,14 @@ Node* deletingBST(Node* root, int val){
         root->right = deletingBST(root->right, val);
     }
     else{
+        // case 1:
         if(root->left==NULL){
             Node* temp = root->right;
             free(root);
             return temp;
         }
 
+        //case 2:
         else if(root->right == NULL){
             Node* temp = root->left;
             free(root);
