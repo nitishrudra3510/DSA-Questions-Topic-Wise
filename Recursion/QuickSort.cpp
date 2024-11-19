@@ -17,3 +17,4 @@ int partition(vector<int>& vec, int low, int high){
     swap(vec[i+1], vec[high]);
     return i+1;
 }
+
