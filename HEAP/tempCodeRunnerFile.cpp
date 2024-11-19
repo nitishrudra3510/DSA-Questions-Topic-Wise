@@ -1,84 +1,37 @@
 #include <iostream>
+#include <utility>
 using namespace std;
 
-class Heap {
-    int arr[10];
-    int size;
+void heapify(int arr[], int n, int i) {
+    int largest = i;
+    int leftIndex = 2 * i + 1;
+    int rightIndex = 2 * i + 2;
 
-public:
-    Heap() {
-        arr[0] = -1;
-        size = 0;
+    if (leftIndex < n && arr[leftIndex] > arr[largest]) {
+        largest = leftIndex;
     }
 
-    void insertAtEnd(int val) {
-        size = size + 1;
-        int index = size;
-        arr[index] = val;
-
-        while (index > 1) {
-            int parent = index / 2;
-
-            if (arr[parent] > arr[index]) {
-                swap(arr[parent], arr[index]);
-                index = parent;
-            } else {
-                return;
-            }
-        }
+    if (rightIndex < n && arr[rightIndex] > arr[largest]) {
+        largest = rightIndex;
     }
 
-    void print() {
-        for (int i = 1; i <= size; i++) {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
     }
-
-
-    void deletefromHeap(){
-        if(size==0){
-            cout<<" Nothing is to delete.."<<endl;
-            return;
-        }
-
-        // step = 1; put last elements to the last elements
-        arr[1] = arr[size];
-
-        //remove the last elements
-        size--;
-
-        // take root node to its correct positions
-        int i = 1;
-        while(i<size){
-            int leftIndex = 2*i;
-            int rightIndex = 2*i+1;
-
-            if(leftIndex < size && arr[i] < arr[leftIndex]){
-                swap(arr[leftIndex], arr[i]);
-                i = leftIndex;
-            }
-            else if(rightIndex<size && arr[i] < arr[rightIndex]){
-                swap(arr[rightIndex], arr[i]);
-                i = rightIndex;
-            }
-            else{
-                return;
-            }
-        }
-    }
-};
+}
 
 int main() {
-    Heap h;
-    h.insertAtEnd(55);
-    h.insertAtEnd(54);
-    h.insertAtEnd(53);
-    h.insertAtEnd(50);
-    h.insertAtEnd(52);
-    h.print();
+    int arr[] = {4, 10, 3, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    h.deletefromHeap();
-    h.print();
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
     return 0;
 }
