@@ -6,7 +6,7 @@
 using namespace std;
 #define n 20
 
-class MyQueue {  // Renamed class to avoid conflicts
+class MyQueue {  
     public:
     int* arr;
     int front;
