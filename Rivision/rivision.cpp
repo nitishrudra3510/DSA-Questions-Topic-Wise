@@ -727,27 +727,404 @@
 // }
 
 
-// reverseArray
+// // reverseArray
+// #include<iostream>
+// using namespace std;
+// void reverse_array(int arr[], int length){
+//     int low = 0, high = length-1;
+//     while(low<high){
+//         int temp = arr[low];
+//         arr[low]=arr[high];
+//         arr[high] = temp;
+//         low++;
+//         high--;
+//     }
+// }
+
+// int main(){
+//     int arr[4] = {1,2,3,4}; 
+//     int length = sizeof(arr)/sizeof(arr[0]);
+
+//     reverse_array(arr, length);
+//     for(int i=0; i<length; i++){
+//         cout<<arr[i]<<" ";
+//     }
+//     return 0;
+// }
+
+
+// binary search
+
+// #include<iostream>
+// using namespace std;
+// int bsearch(int arr[], int n,int x){
+//     int low = 0; 
+//     int high = n-1;
+
+//     while(low<=high){
+//         int mid = (low+high)/2;
+
+//         if(arr[mid]==x){
+//             return mid;
+//         }
+//         else if(arr[mid]>x){
+//             high = mid-1;
+//         }
+//         else{
+//             low=mid+1;
+//         }
+//     }
+
+//     return -1;
+// }
+// int main(){
+//     int n = 5;
+//     int arr[] = {4, 3, 5, 1, 6};
+//     int x = 1;
+
+//     // // Step 1: Sort the array
+//     sort(arr, arr + n);
+
+//     // Output the sorted array (optional for debugging)
+//     cout << "Sorted array: ";
+//     for (int i = 0; i < n; i++) {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+
+//     // Step 2: Perform binary search
+//     int result = bsearch(arr, n, x);
+
+//     // Step 3: Output the result
+//     if (result != -1) {
+//         cout << "Element found at index: " << result << endl;
+//     } else {
+//         cout << "Element not found." << endl;
+//     }
+
+// }
+
+
+
+//  linked list
+
+// #include <cstddef>
+// #include<iostream>
+// #include <new>
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+
+//     // constructor
+//     Node(int data1){
+//         data = data1;
+//         next = NULL;
+//     }
+// };
+
+
+// Node* Array2LL(vector<int> &arr){
+//     if(arr.size() == 0){
+//         return nullptr;
+
+//         Node* head = new Node(arr[0]);
+
+//         Node* mover = head;
+
+//         for(int i=0; i<arr.size(); i++){
+//             Node* temp = new Node(arr[i]);
+//             mover->next = temp;
+//             mover = temp;
+//         }
+
+//         mover->next = NULL;
+
+//         return head;
+//     }
+// }
+
+// int main(){
+//     vector<int> arr = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+
+//     Node* head = Array2LL(arr);
+
+//     Node* current = head;
+//     while(current != nullptr){
+//         cout<<current->data<<" ";
+//         current = current->next;
+//     }
+// }
+
+
+
+// // singly linked list;
+// #include <cstddef>
+// #include <iostream>
+// using namespace std;
+
+// struct Node {
+// public:
+//     int data;
+//     Node* next;
+
+//     Node(int data1) {
+//         data = data1;
+//         next = nullptr;
+//     }
+// };
+
+// Node* insertAtHead(Node* head, int data1) {
+//     Node* new_node = new Node(data1);
+//     new_node->next = head; 
+//     head = new_node;
+//     return head;
+// }
+
+// Node* insertAtTail(Node* head, int data) {
+//     Node* temp = new Node(data);
+
+//     if (head == nullptr) {
+//         return temp; // If the list is empty, make the new node the head
+//     }
+
+//     Node* current = head;
+//     while (current->next != nullptr) {
+//         current = current->next;
+//     }
+
+//     current->next = temp;
+//     return head;
+// }
+
+// Node* insertAtPosition(Node* head, int position, int data1) {
+//     Node* new_node = new Node(data1);
+
+//     if (position == 1 || head == nullptr) { // Insert at head if position is 1 or list is empty
+//         new_node->next = head;
+//         return new_node;
+//     }
+
+//     Node* temp = head;
+//     for (int i = 1; i < position - 1 && temp != nullptr; i++) {
+//         temp = temp->next;
+//     }
+
+//     if (temp == nullptr) {
+//         cout << "Position out of bounds. Appending at the end." << endl;
+//         return insertAtTail(head, data1);
+//     }
+
+//     new_node->next = temp->next;
+//     temp->next = new_node;
+//     return head;
+// }
+
+// void printList(Node* head) {
+//     Node* temp = head;
+//     while (temp != nullptr) {
+//         cout << temp->data << " ";
+//         temp = temp->next;
+//     }
+//     cout << endl;
+// }
+
+// Node* deleteNodeAtHead(Node* head){
+//     if (head == nullptr) {
+//         return nullptr;
+//     }
+//     Node* temp = head;
+//     head = head->next;
+//     delete temp;  // Delete the old head
+//     return head;
+// }
+
+// Node* deleteAtTail(Node* head){
+//     if (head == nullptr) {
+//         return head; 
+//     }
+
+//     if (head->next == nullptr) {
+//         delete head;  // Only one node in the list
+//         return nullptr;
+//     }
+
+//     Node* temp = head;  
+//     while (temp->next->next != nullptr) {
+//         temp = temp->next;
+//     }
+
+//     delete temp->next;  // Delete last node
+//     temp->next = nullptr;
+//     return head;
+// }
+
+// Node* deleteAtSpecific(Node* head, int position){
+//     if (head == nullptr) {
+//         cout << "List is empty!" << endl;
+//         return head;
+//     }
+
+//     // Deleting the head node
+//     if (position == 1) {
+//         Node* temp = head;
+//         head = head->next;
+//         delete temp;
+//         return head;
+//     }
+
+//     int count = 1; Node* temp = head; Node* prev = nullptr;
+
+//     while(temp!=NULL){
+//         if(count==position){
+//             prev->next = prev->next->next;
+//             delete temp;
+//         }
+//         prev = temp;
+//         temp = temp->next;
+//         count++;
+//     }
+
+//     return head;
+    
+// }
+// int getLength(Node* head) {
+//     int length = 0;
+//     while (head != nullptr) {
+//         length++;
+//         head = head->next;
+//     }
+//     return length;  // Correct placement of return
+// }
+
+// // Function to get the middle node's data
+// int getMiddle(Node* head) {
+//     if (head == nullptr) {
+//         cout << "The list is empty!" << endl;
+//         return -1;  // Indicates an empty list
+//     }
+
+//     int length = getLength(head);
+//     int middle = length / 2;  // Middle index
+
+//     Node* temp = head;
+//     while (middle--) {
+//         temp = temp->next;
+//     }
+
+//     return temp->data;
+// }
+
+// int main() {
+//     Node* head = new Node(2);
+//     head->next = new Node(12);
+//     head->next->next = new Node(15);
+//     head->next->next->next = new Node(20);
+
+//     cout << "Initial List: ";
+//     printList(head);
+
+//     // Insert 10 at the head
+//     head = insertAtHead(head, 10);
+//     cout << "After inserting 10 at head: ";
+//     printList(head);
+
+//     // Insert 25 at the tail
+//     head = insertAtTail(head, 25);
+//     cout << "After inserting 25 at tail: ";
+//     printList(head);
+
+//     // Insert 30 at position 3
+//     head = insertAtPosition(head, 3, 30);
+//     cout << "After inserting 30 at position 3: ";
+//     printList(head);
+
+//     // Insert 5 at position 1
+//     head = insertAtPosition(head, 1, 5);
+//     cout << "After inserting 5 at position 1: ";
+//     printList(head);
+
+//     // Insert 40 at position 10 (out of bounds)
+//     head = insertAtPosition(head, 10, 40);
+//     cout << "After attempting to insert 40 at position 10: ";
+//     printList(head);
+
+//     // Deleting nodes
+//     head = deleteNodeAtHead(head);
+//     cout << "After deleting node at head: ";
+//     printList(head);
+
+//     head = deleteAtTail(head);
+//     cout << "After deleting node at tail: ";
+//     printList(head);
+
+//     head = deleteAtSpecific(head, 3);
+//     cout << "After deleting node at position 3: ";
+//     printList(head);
+//     cout<<getLength(head);
+//     cout<<getMiddle(head)<<endl;
+
+//     return 0;
+// }
+
+
+
+// double linked list
+
+#include <cstddef>
 #include<iostream>
 using namespace std;
-void reverse_array(int arr[], int length){
-    int low = 0, high = length-1;
-    while(low<high){
-        int temp = arr[low];
-        arr[low]=arr[high];
-        arr[high] = temp;
-        low++;
-        high--;
+struct Node{
+    int data;
+    Node* next;
+    Node* prev;
+
+    Node(int data1)
+    {
+        data = data1;
+        next = NULL;
+        prev = NULL;
     }
+};
+void printList(Node* head){
+    Node* curr = head;
+    while(curr!=NULL){
+        cout<<curr->data<<" ";
+        curr = curr->next;
+    }
+
+    cout<<endl;
+}
+Node* insertAtHead(Node* head, int data1){
+    Node* new_node = new Node(data1);
+
+    new_node->next = head;
+
+    if(head!=NULL){
+        head->prev = new_node;
+    }
+    return new_node;
 }
 
 int main(){
-    int arr[4] = {1,2,3,4}; 
-    int length = sizeof(arr)/sizeof(arr[0]);
+    Node* head = new Node(2);
+    Node* temp1 = new Node(3);
+    Node* temp2 = new Node(4);
+    head->next = temp1;
+    temp1->prev = head;
+    temp1->next = temp2;
+    temp2->prev = temp1;
 
-    reverse_array(arr, length);
-    for(int i=0; i<length; i++){
-        cout<<arr[i]<<" ";
-    }
-    return 0;
+  	// Print the original list
+    cout << "Original Linked List: ";
+    printList(head);
+
+    // Insert a new node at the front of the list
+    head = insertAtHead(head, 1);
+
+    // Print the updated list
+  	cout << "After inserting Node 1 at the front: ";
+    printList(head);
 }
+

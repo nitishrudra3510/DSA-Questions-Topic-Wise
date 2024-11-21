@@ -1,26 +1,26 @@
-// #include<iostream>
-// using namespace std;
-// int firstOccurence(int arr[], int n, int x){
-//     for(int i=0; i<n; i++){
-//         if(arr[i]==x){
-//             return i;
-//         }
-//     }
-//     return -1;
-// }
-// int main(){
-//     int n;
-//     cin>>n;
-//     int arr[n];
-//     for(int i=0;i<n;i++){
-//         cin>>arr[i];
-//     }
+#include<iostream>
+using namespace std;
+int firstOccurence(int arr[], int n, int x){
+    for(int i=0; i<n; i++){
+        if(arr[i]==x){
+            return i;
+        }
+    }
+    return -1;
+}
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
 
-//     int x;
-//     cin>>x;
-//     cout<<firstOccurence(arr, n,x);
+    int x;
+    cin>>x;
+    cout<<firstOccurence(arr, n,x);
 
-// }
+}
 
 // time complexity : o(n)
 // s.c: o(1)
