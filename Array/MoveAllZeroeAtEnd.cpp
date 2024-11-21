@@ -47,7 +47,6 @@ void MoveZeroes(int arr[], int n){
             res++;
         }
     }
-
 }
 int main(){
     int n;

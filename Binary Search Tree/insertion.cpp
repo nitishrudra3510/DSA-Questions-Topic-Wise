@@ -61,6 +61,30 @@ void preorder(Node* root){
     
 }
 
+// level order print;
+
+void print(Node* root) {
+    if (root == NULL) {
+        cout << "Tree is empty." << endl;
+        return;
+    }
+
+    queue<Node*> q;
+    q.push(root);
+
+    while (!q.empty()) {
+        Node* current = q.front();
+        q.pop();
+        cout << current->data << " ";
+
+        if (current->left != NULL) {
+            q.push(current->left);
+        }
+        if (current->right != NULL) {
+            q.push(current->right);
+        }
+    }
+}
 
 int main(){
     Node* root = NULL;
@@ -73,6 +97,7 @@ int main(){
     root = insertBST(root, 15);
     root = insertBST(root, 30);
 
+   
     // Display the tree using different traversals
     cout << "In-order Traversal (Sorted Order): ";
     inorder(root);
@@ -86,7 +111,6 @@ int main(){
     postorder(root);
     cout << endl;
 
-    return 0;
-
+    print(root);
     return 0;
 }
