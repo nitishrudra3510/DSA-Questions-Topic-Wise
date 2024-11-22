@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void selectionSort(int arr[], int n) {
+void selectionSort(int arr[], int n) { // sort array me se 1st element ke sath ko compare karta hai unsorted element ko min element ke sath
     for (int i = 0; i < n - 1; i++) {
         int smallest = i; 
         for (int j = i + 1; j < n; j++) {

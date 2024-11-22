@@ -19,7 +19,7 @@
 // int main(){
 //     int n;
 //     cin>>n;
-//     int arr[n];
+//     int arr[n]; 
 //     for(int i=0;i<n;i++){
 //         cin>>arr[i];
 //     }
@@ -62,7 +62,7 @@ int BsearchRecursion(int arr[], int start, int high, int x){
         return BsearchRecursion(arr, start, mid-1,x);
     }
     else{
-        return BsearchRecursion(arr, start,mid+1,x);
+        return BsearchRecursion(arr, mid+1,high, x);
     }
 }
 int main(){

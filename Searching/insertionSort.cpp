@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void insertionSort(int arr[], int n) {
+void insertionSort(int arr[], int n) { // insert the element from unsorted array to its correct posiiton in sorted array. 
     for (int i = 1; i < n; i++) { 
         int temp = arr[i]; // Current element to be inserted
         int j = i - 1;
@@ -16,7 +16,8 @@ void insertionSort(int arr[], int n) {
             }
         }
         // Insert the current element at its correct position
-        arr[j + 1] = temp;
+        arr[j + 1] = temp;t
+        t
     }
 }
 

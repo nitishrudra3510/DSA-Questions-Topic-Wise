@@ -1107,6 +1107,99 @@ Node* insertAtHead(Node* head, int data1){
     return new_node;
 }
 
+Node* insertAtTail(Node* head, int data1){
+    Node* new_node = new Node(data1);
+    if(head==NULL){
+        return new_node;
+    }
+
+    Node* temp = head;
+    while(temp->next!=nullptr){
+        temp = temp->next;
+    }
+
+    temp->next = new_node;
+    new_node->prev = temp;
+    new_node->next = nullptr;
+
+    return head;
+}
+Node* insertAtSpecificPos(Node* head, int position, int data){
+    Node* new_node = new Node(data);
+
+    if(position == 1){
+        new_node->next = head;
+
+        if(head!=NULL){
+            new_node->prev = head;
+        }
+        head = new_node;
+        return head;
+    }
+    Node* curr = head;
+    int count=1;
+    while(curr!=NULL && count<position){
+        count++;
+        curr = curr->next;
+    }
+   
+    new_node->prev = curr;
+    
+    new_node->next = curr->next;
+
+   
+    curr->next = new_node;
+
+   
+    if(new_node->next!=NULL){
+        new_node->next->prev = new_node;
+    }
+
+    return head;
+}
+
+
+Node* deleteHeadNode(Node* head){
+    if(head==nullptr || head->next == nullptr){
+        return nullptr;
+    }
+
+    Node* prev = head;
+    head = head->next;
+    head->prev = nullptr;
+    prev->next = nullptr;
+
+    delete prev;
+    return head;
+}
+
+Node* deleteAtTail(Node* head){
+    if(head==NULL){
+        return nullptr;
+    }
+
+    if(head->next==NULL){
+        delete head;
+        return nullptr;
+    }
+
+    Node* temp = head;
+
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+
+    Node* newTail = temp->prev;
+    newTail->next = nullptr;
+    temp->prev = nullptr;
+
+    delete temp;
+
+    return head;
+    
+}
+
+
 int main(){
     Node* head = new Node(2);
     Node* temp1 = new Node(3);
@@ -1123,6 +1216,9 @@ int main(){
     // Insert a new node at the front of the list
     head = insertAtHead(head, 1);
 
+    head = insertAtTail(head, 5);
+
+    head = insertAtSpecificPos(head, 3, 6);
     // Print the updated list
   	cout << "After inserting Node 1 at the front: ";
     printList(head);
