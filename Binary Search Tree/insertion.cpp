@@ -80,6 +80,7 @@ void print(Node* root) {
         if (current->left != NULL) {
             q.push(current->left);
         }
+        
         if (current->right != NULL) {
             q.push(current->right);
         }

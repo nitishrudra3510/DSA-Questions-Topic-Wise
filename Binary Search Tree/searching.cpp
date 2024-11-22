@@ -39,8 +39,8 @@ Node* SearchingBST(Node* root, int val){
     if(root->data == val){
         return root;
     }
-
-    if(val<root->data){
+    
+    if(val < root->data){
         return SearchingBST(root->left, val);
     }else{
         return SearchingBST(root->right, val);
