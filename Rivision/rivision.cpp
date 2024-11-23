@@ -1072,155 +1072,290 @@
 
 // double linked list
 
-#include <cstddef>
-#include<iostream>
-using namespace std;
-struct Node{
-    int data;
-    Node* next;
-    Node* prev;
+// #include <cstddef>
+// #include<iostream>
+// using namespace std;
+// struct Node{
+//     int data;
+//     Node* next;
+//     Node* prev;
 
-    Node(int data1)
-    {
-        data = data1;
-        next = NULL;
-        prev = NULL;
-    }
-};
-void printList(Node* head){
-    Node* curr = head;
-    while(curr!=NULL){
-        cout<<curr->data<<" ";
-        curr = curr->next;
-    }
+//     Node(int data1)
+//     {
+//         data = data1;
+//         next = NULL;
+//         prev = NULL;
+//     }
+// };
+// void printList(Node* head){
+//     Node* curr = head;
+//     while(curr!=NULL){
+//         cout<<curr->data<<" ";
+//         curr = curr->next;
+//     }
 
-    cout<<endl;
-}
-Node* insertAtHead(Node* head, int data1){
-    Node* new_node = new Node(data1);
+//     cout<<endl;
+// }
+// Node* insertAtHead(Node* head, int data1){
+//     Node* new_node = new Node(data1);
 
-    new_node->next = head;
+//     new_node->next = head;
 
-    if(head!=NULL){
-        head->prev = new_node;
-    }
-    return new_node;
-}
+//     if(head!=NULL){
+//         head->prev = new_node;
+//     }
+//     return new_node;
+// }
 
-Node* insertAtTail(Node* head, int data1){
-    Node* new_node = new Node(data1);
-    if(head==NULL){
-        return new_node;
-    }
+// Node* insertAtTail(Node* head, int data1){
+//     Node* new_node = new Node(data1);
+//     if(head==NULL){
+//         return new_node;
+//     }
 
-    Node* temp = head;
-    while(temp->next!=nullptr){
-        temp = temp->next;
-    }
+//     Node* temp = head;
+//     while(temp->next!=nullptr){
+//         temp = temp->next;
+//     }
 
-    temp->next = new_node;
-    new_node->prev = temp;
-    new_node->next = nullptr;
+//     temp->next = new_node;
+//     new_node->prev = temp;
+//     new_node->next = nullptr;
 
-    return head;
-}
-Node* insertAtSpecificPos(Node* head, int position, int data){
-    Node* new_node = new Node(data);
+//     return head;
+// }
+// Node* insertAtSpecificPos(Node* head, int position, int data){
+//     Node* new_node = new Node(data);
 
-    if(position == 1){
-        new_node->next = head;
+//     if(position == 1){
+//         new_node->next = head;
 
-        if(head!=NULL){
-            new_node->prev = head;
-        }
-        head = new_node;
-        return head;
-    }
-    Node* curr = head;
-    int count=1;
-    while(curr!=NULL && count<position){
-        count++;
-        curr = curr->next;
-    }
+//         if(head!=NULL){
+//             new_node->prev = head;
+//         }
+//         head = new_node;
+//         return head;
+//     }
+//     Node* curr = head;
+//     int count=1;
+//     while(curr!=NULL && count<position){
+//         count++;
+//         curr = curr->next;
+//     }
    
-    new_node->prev = curr;
+//     new_node->prev = curr;
     
-    new_node->next = curr->next;
+//     new_node->next = curr->next;
 
    
-    curr->next = new_node;
+//     curr->next = new_node;
 
    
-    if(new_node->next!=NULL){
-        new_node->next->prev = new_node;
-    }
+//     if(new_node->next!=NULL){
+//         new_node->next->prev = new_node;
+//     }
 
-    return head;
-}
+//     return head;
+// }
 
 
-Node* deleteHeadNode(Node* head){
-    if(head==nullptr || head->next == nullptr){
-        return nullptr;
-    }
+// Node* deleteHeadNode(Node* head){
+//     if(head==nullptr || head->next == nullptr){
+//         return nullptr;
+//     }
 
-    Node* prev = head;
-    head = head->next;
-    head->prev = nullptr;
-    prev->next = nullptr;
+//     Node* prev = head;
+//     head = head->next;
+//     head->prev = nullptr;
+//     prev->next = nullptr;
 
-    delete prev;
-    return head;
-}
+//     delete prev;
+//     return head;
+// }
 
-Node* deleteAtTail(Node* head){
-    if(head==NULL){
-        return nullptr;
-    }
+// Node* deleteAtTail(Node* head){
+//     if(head==NULL){
+//         return nullptr;
+//     }
 
-    if(head->next==NULL){
-        delete head;
-        return nullptr;
-    }
+//     if(head->next==NULL){
+//         delete head;
+//         return nullptr;
+//     }
 
-    Node* temp = head;
+//     Node* temp = head;
 
-    while(temp->next != NULL){
-        temp = temp->next;
-    }
+//     while(temp->next != NULL){
+//         temp = temp->next;
+//     }
 
-    Node* newTail = temp->prev;
-    newTail->next = nullptr;
-    temp->prev = nullptr;
+//     Node* newTail = temp->prev;
+//     newTail->next = nullptr;
+//     temp->prev = nullptr;
 
-    delete temp;
+//     delete temp;
 
-    return head;
+//     return head;
     
-}
+// }
 
 
-int main(){
-    Node* head = new Node(2);
-    Node* temp1 = new Node(3);
-    Node* temp2 = new Node(4);
-    head->next = temp1;
-    temp1->prev = head;
-    temp1->next = temp2;
-    temp2->prev = temp1;
+// int main(){
+//     Node* head = new Node(2);
+//     Node* temp1 = new Node(3);
+//     Node* temp2 = new Node(4);
+//     head->next = temp1;
+//     temp1->prev = head;
+//     temp1->next = temp2;
+//     temp2->prev = temp1;
 
-  	// Print the original list
-    cout << "Original Linked List: ";
-    printList(head);
+//   	// Print the original list
+//     cout << "Original Linked List: ";
+//     printList(head);
 
-    // Insert a new node at the front of the list
-    head = insertAtHead(head, 1);
+//     // Insert a new node at the front of the list
+//     head = insertAtHead(head, 1);
 
-    head = insertAtTail(head, 5);
+//     head = insertAtTail(head, 5);
 
-    head = insertAtSpecificPos(head, 3, 6);
-    // Print the updated list
-  	cout << "After inserting Node 1 at the front: ";
-    printList(head);
-}
+//     head = insertAtSpecificPos(head, 3, 6);
+//     // Print the updated list
+//   	cout << "After inserting Node 1 at the front: ";
+//     printList(head);
+// }
 
+
+// #include<iostream>
+// using namespace std;
+
+// class Heap{
+//     int arr[10];
+//     int size;
+
+//     public:
+//     Heap(){
+//         arr[0] = -1;
+//         size = 0;
+//     }
+
+
+//     void insertAtEnd(int val){
+//         size = size+1;
+
+//         int index = size;
+//         arr[index]= val;
+
+//         while(index>1){
+//             int parent = index/2;
+
+//             if(arr[parent] > arr[index]){
+//                 swap(arr[parent], arr[index]);
+//                 index = parent;
+//             }
+//         }
+//     }
+
+//     void print(){
+//         for(int i=1; i<=size; i++){
+//             cout<<arr[i]<<" ";
+//         }
+
+//         cout<<endl;
+//     }
+// };
+
+// int main(){
+
+//     Heap h;
+//     h.insertAtEnd(55);
+//     h.insertAtEnd(54);
+//     h.insertAtEnd(53);
+//     h.insertAtEnd(50);
+//     h.insertAtEnd(52);
+//     h.print();
+
+    
+//     return 0;
+//}
+
+
+// void heapify(int arr[], int n, int i){
+//     int largest = i;
+//     int leftIndex = 2*i+1;
+//     int rightINdex = 2*i+2;
+
+//     if(leftIndex < n && arr[leftIndex] > arr[largest]){
+//         largest = leftIndex;
+//     }
+
+//     if(rightINdex < n && arr[rightINdex] > arr[largest]){
+//         largest = rightINdex;
+//     }
+
+//     if(largest!=i){
+//         swap(arr[i], arr[largest]);
+//         heapify(arr, n-1, largest);
+//     }
+// }
+
+
+
+// int heapSort(int arr[], int n){
+//     int size = n;
+//     while(size > 1){
+//         swap(arr[size], arr[1]);
+//         size--;
+
+//         heapify(arr, size, 1);
+//     }
+// }
+
+
+// #include <iostream>
+// #include <utility>
+// using namespace std;
+
+// void heapify(int arr[], int n, int i) {
+//     int largest = i;
+//     int leftIndex = 2 * i + 1;
+//     int rightIndex = 2 * i + 2;
+
+//     if (leftIndex < n && arr[leftIndex] > arr[largest]) {
+//         largest = leftIndex;
+//     }
+
+//     if (rightIndex < n && arr[rightIndex] > arr[largest]) {
+//         largest = rightIndex;
+//     }
+
+//     if (largest != i) {
+//         swap(arr[i], arr[largest]);
+//         heapify(arr, n, largest);
+//     }
+// }
+
+// int heapSort(int arr[], int n){
+//     int size = n;
+//     while(size > 1){
+//         //step 1 : swap
+//         swap(arr[size], arr[1]);
+//         size--;
+
+//         // heapify ; 
+//         heapify(arr, n, 1);
+//     }
+// }
+// int main() {
+//     int arr[] = {4, 10, 3, 5, 1};
+//     int n = sizeof(arr) / sizeof(arr[0]);
+
+//     for (int i = n / 2 - 1; i >= 0; i--) {
+//         heapify(arr, n, i);
+//     }
+
+//     for (int i = 0; i < n; i++) {
+//         cout << arr[i] << " ";
+//     }
+
+//     return 0;
+// }

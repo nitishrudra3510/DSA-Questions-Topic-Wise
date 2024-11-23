@@ -16,8 +16,7 @@ void insertionSort(int arr[], int n) { // insert the element from unsorted array
             }
         }
         // Insert the current element at its correct position
-        arr[j + 1] = temp;t
-        t
+        arr[j + 1] = temp;
     }
 }
 
